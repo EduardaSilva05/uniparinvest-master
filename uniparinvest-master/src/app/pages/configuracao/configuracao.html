@@ -1,0 +1,19 @@
+<div class="config-container">
+  <h2>Configuração do Dashboard</h2>
+  <div class="campo">
+    <label>Tempo de atualização (ms):</label>
+    <input type="number" [(ngModel)]="intervaloAtualizacaoMs" />
+  </div>
+  <h3>Selecione as ações:</h3>
+  <ul>
+    <li *ngFor="let acao of acoes">
+      <input
+        type="checkbox"
+        [checked]="isSelecionada(acao)"
+        (change)="toggleSelecao(acao)"
+      />
+      {{ acao.empresa }} ({{ acao.ticker }})
+    </li>
+  </ul>
+  <button (click)="salvarConfiguracao()">Salvar</button>
+</div>

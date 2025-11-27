@@ -1,0 +1,22 @@
+import { Routes } from '@angular/router';
+import {Inicio} from './layout/inicio/inicio';
+import {Tickers} from './pages/tickers/tickers';
+import {ConfiguracaoComponent} from './pages/configuracao/configuracao';
+import {DashboardComponent} from './pages/dashboard/dashboard';
+import {Usuarios} from './pages/usuarios/usuarios';
+
+
+export const routes: Routes = [
+  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+  { path: 'inicio',
+    component: Inicio,
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'tickers', component: Tickers },
+      { path: 'configuracao', component: ConfiguracaoComponent },
+      { path: 'usuarios', component: Usuarios}
+    ]
+  },
+  { path: '**', redirectTo: 'inicio'},
+
+];

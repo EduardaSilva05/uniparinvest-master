@@ -1,0 +1,51 @@
+<div class="user-container">
+  <h2>Gerenciamento de Usuários</h2>
+
+
+  <form (ngSubmit)="salvarUsuario()" #userForm="ngForm" class="user-form">
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" name="nome" [(ngModel)]="usuario.nome" required />
+    </div>
+
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="usuario.email" required />
+    </div>
+
+
+    <div class="form-actions">
+      <button type="submit">
+        {{ usuario.id ? 'Atualizar' : 'Cadastrar' }}
+      </button>
+      <button type="button" class="cancel" (click)="resetarFormulario()">Cancelar</button>
+    </div>
+  </form>
+
+
+  <h3>Lista de Usuários</h3>
+
+
+  <table class="user-table">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Perfil</th>
+      <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of usuarios">
+      <td>{{ user.nome }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.perfil }}</td>
+      <td class="actions">
+        <button class="edit" (click)="editarUsuario(user)">Editar</button>
+        <button class="delete" (click)="deletarUsuario(user.id)">Excluir</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
