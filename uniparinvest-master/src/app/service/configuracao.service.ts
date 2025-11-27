@@ -34,4 +34,9 @@ export class ConfiguracaoService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.API_URL}/${id}`);
   }
+
+  getByUsuario(usuarioId: number): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}/usuario/${usuarioId}`);
+  }
+
 }

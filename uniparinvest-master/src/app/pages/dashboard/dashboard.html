@@ -1,5 +1,12 @@
 <div class="dashboard-container">
 
+  <label>Selecione o usuário:</label>
+  <select [(ngModel)]="usuarioSelecionado" (change)="onUsuarioChange()">
+    <option *ngFor="let u of usuarios" [value]="u.id">
+      {{ u.nome }}
+    </option>
+  </select>
+
   <div *ngIf="dados.length > 0; else semDados" class="cards">
     <div class="card" *ngFor="let acao of dados">
       <h3>{{ acao.ticker }}</h3>
